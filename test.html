@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+<script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+<script>
+function runTest() {
+        var _ = new QWebChannel(qt.webChannelTransport, function(channel) {
+                var obj = { "testObject": "yes" };
+                channel.objects.proxy.logVariant(obj);
+                channel.objects.proxy.logJSONValue(obj);
+                channel.objects.proxy.logJSONObject(obj);
+                channel.objects.proxy.logString(JSON.stringify(obj));
+        });
+        document.write("Loaded!");
+}
+</script>
+</head>
+<body onload="runTest();">
+</body>
+</html>
