@@ -31,6 +31,19 @@ void WebProxy::logString(const QString &val)
 	qDebug() << "STRING:" << val;
 }
 
+void WebProxy::setVal(const QJsonValue &val)
+{
+	qDebug() << __FUNCTION__ << val;
+	setVal_ = val;
+	emit setValChanged();
+}
+
+QJsonValue WebProxy::getVal() const
+{
+	qDebug() << __FUNCTION__ << "returning" << setVal_.toString();
+	return setVal_;
+}
+
 Widget::Widget(QWidget *parent) : QWidget(parent)
 {
 	auto lay = new QHBoxLayout(this);

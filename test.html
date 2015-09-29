@@ -9,6 +9,12 @@ function runTest() {
                 channel.objects.proxy.logJSONValue(obj);
                 channel.objects.proxy.logJSONObject(obj);
                 channel.objects.proxy.logString(JSON.stringify(obj));
+
+                channel.objects.proxy.rval = obj;
+                channel.objects.proxy.logString(JSON.stringify(channel.objects.proxy.rval));
+
+                channel.objects.proxy.sval = obj;
+                channel.objects.proxy.logString(JSON.stringify(channel.objects.proxy.sval));
         });
         document.write("Loaded!");
 }
